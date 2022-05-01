@@ -1,10 +1,20 @@
 // console.log('hifervservesrvvverer ')
+let bn=document.getElementById('bn')
+bn.addEventListener('click',myfun)
+function myfun(){
+    // Event.preventDefault();
+    var title=document.getElementById('title').value;
+   // console.log(title)
+   abc(title)
+}
 
-fetch('http://www.omdbapi.com/?i=tt3896198&apikey=f19e44ba').then((response)=>{
+var url='http://www.omdbapi.com/?apikey=f19e44ba&t='
+function abc(title){fetch(url+title).then((response)=>{
     return response.json();
 }).then((data)=>{
-    // console.log(data)
+    console.log(data)
     var a=document.querySelector('#container');
+    a.innerHTML='';
     for(var i in data){
    var b1=document.createElement('p');
    var b2=document.createElement('p');
@@ -21,6 +31,6 @@ fetch('http://www.omdbapi.com/?i=tt3896198&apikey=f19e44ba').then((response)=>{
     console.log('error');
    
 })
-
+}
 
 // console.log('hi')
